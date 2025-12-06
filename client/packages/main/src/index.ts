@@ -15,7 +15,7 @@ export async function initApp(initConfig: AppInitConfig) {
     .init(disallowMultipleAppInstance())
     .init(terminateAppOnLastWindowClose())
     .init(hardwareAccelerationMode({enable: false}))
-    .init(autoUpdater())
+    // .init(autoUpdater())
 
     // Install DevTools extension if needed
     // .init(chromeDevToolsExtension({extension: 'VUEJS3_DEVTOOLS'}))
@@ -41,6 +41,11 @@ export async function initApp(initConfig: AppInitConfig) {
           : [],
       )),
     );
+
+    if (process.env.PLAYWRIGHT_TEST !== 'true') {
+      // Initialize auto-updater here
+      moduleRunner.init(autoUpdater());
+    }
 
   await moduleRunner;
 }

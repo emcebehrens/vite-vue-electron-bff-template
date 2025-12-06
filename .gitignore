@@ -61,3 +61,5 @@ thumbs.db
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
+
+client/test-results/*

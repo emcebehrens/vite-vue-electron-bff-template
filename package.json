@@ -11,7 +11,8 @@
     "dev-spa": "yarn workspace @xyz/client dev-spa",
     "dev-electron": "yarn workspace @xyz/client dev-electron",
     "build-spa": "yarn workspace @xyz/renderer build",
-    "compile-electron": "yarn workspace @xyz/client compile-electron"
+    "compile-electron": "yarn workspace @xyz/client compile-electron",
+    "test-electron": "yarn workspace @xyz/client test"
   },
   "packageManager": "yarn@4.12.0"
 }

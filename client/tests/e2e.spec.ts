@@ -20,9 +20,12 @@ const test = base.extend<TestFixtures>({
     /**
      * Executable path depends on root package name!
      */
-    let executablePattern = 'dist/*/root{,.*}';
+    // let executablePattern = 'dist/*/root{,.*}';
+    let executablePattern = '**/dist/*/root{,.*}';
     if (platform === 'darwin') {
       executablePattern += '/Contents/*/root';
+    } else if (platform === 'win32') {
+      executablePattern = '**/dist/win-unpacked/*.exe';
     }
 
     const [executablePath] = globSync(executablePattern);
@@ -33,6 +36,10 @@ const test = base.extend<TestFixtures>({
     const electronApp = await electron.launch({
       executablePath: executablePath,
       args: ['--no-sandbox'],
+      env: {
+        ...process.env,
+        PLAYWRIGHT_TEST: 'true',
+      },
     });
 
     electronApp.on('console', (msg) => {
