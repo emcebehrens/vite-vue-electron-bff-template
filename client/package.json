@@ -1,0 +1,33 @@
+{
+  "name": "@xyz/client",
+  "description": "Secure boilerplate for Electron app based on Vite",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "packages/entry-point.mjs",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev-electron": "node packages/dev-electron.js",
+    "dev-spa": "yarn workspace @xyz/renderer dev",
+    "build-electron": "yarn workspaces foreach -A run build",
+    "build-spa": "yarn workspace @xyz/renderer build",
+    "compile-electron": "yarn build-electron && electron-builder build --config electron-builder.mjs",
+    "test": "npx playwright test ./tests/e2e.spec.ts",
+    "typecheck": "yarn typecheck -ws --if-present"
+  },
+  "devDependencies": {
+    "@npmcli/map-workspaces": "4.0.2",
+    "@playwright/test": "1.57.0",
+    "@types/node": "24.10.1",
+    "electron": "39.2.6",
+    "electron-builder": "26.3.4",
+    "glob": "13.0.0",
+    "playwright": "^1.57.0"
+  },
+  "packageManager": "yarn@4.7.0"
+}

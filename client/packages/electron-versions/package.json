@@ -1,0 +1,8 @@
+{
+  "name": "@xyz/electron-versions",
+  "version": "0.0.1",
+  "type": "module",
+  "files": [],
+  "main": "./index.js",
+  "description": "A set of helper functions to get the versions of internal components bundled within Electron"
+}

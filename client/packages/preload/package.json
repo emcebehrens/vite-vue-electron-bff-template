@@ -1,0 +1,28 @@
+{
+  "name": "@xyz/preload",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "vite build",
+    "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./dist/_virtual_browser.mjs"
+    },
+    "./exposed.mjs": {
+      "types": "./src/exposed.d.ts",
+      "default": "./dist/exposed.mjs"
+    }
+  },
+  "devDependencies": {
+    "@xyz/electron-versions": "workspace:*",
+    "mlly": "1.8.0",
+    "typescript": "5.9.3",
+    "vite": "npm:rolldown-vite@7.1.14"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@7.1.14"
+  }
+}

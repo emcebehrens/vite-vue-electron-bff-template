@@ -1,0 +1,17 @@
+{
+  "name": "xyz",
+  "version": "0.0.0",
+  "description": "Mono repo for all XYZ related code",
+  "private": true,
+  "workspaces": [
+    "bff",
+    "client"
+  ],
+  "scripts": {
+    "dev-spa": "yarn workspace @xyz/client dev-spa",
+    "dev-electron": "yarn workspace @xyz/client dev-electron",
+    "build-spa": "yarn workspace @xyz/renderer build",
+    "compile-electron": "yarn workspace @xyz/client compile-electron"
+  },
+  "packageManager": "yarn@4.12.0"
+}

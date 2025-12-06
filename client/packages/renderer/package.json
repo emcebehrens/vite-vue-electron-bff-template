@@ -1,0 +1,33 @@
+{
+  "name": "@xyz/renderer",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config vite.config.web.js --host",
+    "build-spa": "vue-tsc -b && vite build --config vite.config.web.js --base ./",
+    "build": "vue-tsc -b && vite build --base ./",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@xyz/preload": "workspace:*",
+    "vue": "^3.5.25"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@vitejs/plugin-vue": "^6.0.2",
+    "@vue/tsconfig": "^0.8.1",
+    "typescript": "~5.9.3",
+    "vite": "npm:rolldown-vite@7.1.14",
+    "vue-tsc": "^3.1.5"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@7.1.14"
+  },
+  "main": "./dist/index.html",
+  "exports": {
+    ".": {
+      "default": "./dist/index.html"
+    }
+  }
+}
